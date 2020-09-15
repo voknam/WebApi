@@ -22,14 +22,8 @@ class User extends REST_Controller
 
 	function index_get()
 	{
-		$id = $this->get('id');
-		if ($id == '') {
-			$kontak = $this->db->get('telepon')->result();
-		}else{
-			$this->db->where('id',$id);
-			$kontak = $this->db->get('telepon')->result();
-		}
-		$this->response($kontak, 200);
+		 $kontak = $this->db->get('telepon')->result();
+        $this->response(array("result" => $kontak, 200));
 	}
 	function index_post()
 	{	
